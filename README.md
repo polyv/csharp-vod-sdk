@@ -13,6 +13,8 @@
 5. 所有库文件在lib文件夹内
 
 6. 依赖库：
+```java
+
    ./ 代表程序运行目录
    ./PolyvPlayerSDK.dll 播放逻辑核心库
 
@@ -37,7 +39,7 @@
    ./ffmpeg/ffprobe.exe
    ./ffmpeg/libiconv-2.dll
    ./ffmpeg/libgcc_s_dw2-1.dll
-
+```
 #### 播放模块接口释义
 
 ##### 一、用户信息初始化
