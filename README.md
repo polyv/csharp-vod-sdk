@@ -40,7 +40,7 @@
 
 #### 播放模块接口释义
 
-#####一、用户信息初始化
+##### 一、用户信息初始化
 
 1、用户管理后台API信息初始化
 
@@ -62,7 +62,7 @@ int initPlayerInfo(string viewerIp, string viewerId, string viewerName);
 0：成功
 -1：失败，viewerIp为空
 
-#####二、加载视频源
+##### 二、加载视频源
 
 1、加载视频接口
 
@@ -88,7 +88,7 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 播放在线视频时：如果bitRate为3，但是后台只有1和2，会自动降级加载2，以此类推如果只有1则会自动加载1。返回值1、2、3表示加载的对应码率。
 播放本地视频：首先在本地查找bitRate对应的视频，没有该码率视频则查找低码率的。返回值1、2、3表示加载的对应码率。(3没有找2，2没有找1，1也没有返回-5)
 
-#####三、播放控制
+##### 三、播放控制
 
 视频加载成功后可以进行暂停、停止、拖放等控制
 
@@ -104,7 +104,7 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 
  
 
-#####四．播放回调
+##### 四．播放回调
 
 播放模块提供相应回调函数，播放结束、播放异常、缓冲开始/结束、Seek开始/结束、视频加载中、加载完成
 
@@ -156,7 +156,7 @@ public event EventHandler<MediaOpeningRoutedEventArgs> MediaOpening;
 
 
 
-#####五、音量控制
+##### 五、音量控制
 
 1、静音属性IsMuted
 
@@ -192,7 +192,7 @@ public const double MaxSpeedRatio = 2.0d;
 
  
 
-#####七、播放其他参数
+##### 七、播放其他参数
 
 1、string MediaFormat  媒体格式
 
