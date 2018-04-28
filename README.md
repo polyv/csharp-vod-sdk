@@ -46,6 +46,8 @@
 
 1、用户管理后台API信息初始化
 
+```java
+
 int initAccountInfo(string userId, string secretKey, string readToken);
 
 使用方法：初始化播放器时调用该接口；
@@ -64,6 +66,7 @@ int initPlayerInfo(string viewerIp, string viewerId, string viewerName);
 0：成功
 -1：失败，viewerIp为空
 
+```
 ##### 二、加载视频源
 
 1、加载视频接口
