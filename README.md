@@ -86,9 +86,16 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 -4:视频信息获取失败,
 -5:没有对应码率,
 -6:网络异常；
+
 说明：
-播放在线视频时：如果bitRate为3，但是后台只有1和2，会自动降级加载2，以此类推如果只有1则会自动加载1。返回值1、2、3表示加载的对应码率。
-播放本地视频：首先在本地查找bitRate对应的视频，没有该码率视频则查找低码率的。返回值1、2、3表示加载的对应码率。(3没有找2，2没有找1，1也没有返回-5)
+
+播放在线视频时：如果bitRate为3，但是后台只有1和2，会自动降级加载2，以此类推如果只有1则会自动加载1。
+
+返回值1、2、3表示加载的对应码率。
+
+播放本地视频：首先在本地查找bitRate对应的视频，没有该码率视频则查找低码率的。
+
+返回值1、2、3表示加载的对应码率。(3没有找2，2没有找1，1也没有返回-5)
 
 ##### 三、播放控制
 
@@ -109,6 +116,8 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 ##### 四．播放回调
 
 播放模块提供相应回调函数，播放结束、播放异常、缓冲开始/结束、Seek开始/结束、视频加载中、加载完成
+
+```java
 
 public event RoutedEventHandler BufferingEnded;
 
@@ -156,19 +165,24 @@ public event EventHandler<MediaOpeningRoutedEventArgs> MediaOpening;
 
 视频正在加载
 
-
+```
 
 ##### 五、音量控制
+
+```java
 
 1、静音属性IsMuted
 
 public bool IsMuted；
 
 默认静音属性为flase，IsMuted = false;
-
+```
  
 
 2、音量大小控制属性Volume，修改Volume值即可改变音量大小
+
+```java
+
 
 public const double DefaultVolume = 1.0d;
 
@@ -177,7 +191,7 @@ public const double MaxVolume = 1.0d;
 public const double MinVolume = 0.0d;
 
 默认音量为最大值，Volume = DefaultVolume;
-
+```
  
 
 ##### 六、倍速控制
