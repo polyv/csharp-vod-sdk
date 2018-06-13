@@ -167,6 +167,7 @@ namespace PolyvPlayerDemoWinform
         private void openBtn_Click(object sender, EventArgs e)
         {
             string videoId = this.textBox1.Text.Trim();
+
             int playType = 0;
             if (checkBox1.Checked)
                 playType = 1;
@@ -175,9 +176,9 @@ namespace PolyvPlayerDemoWinform
             string status = "";
             switch (ret)
             {
-                case 3: status = "播放超清"; break;
-                case 2: status = "播放高清"; break;
-                case 1: status = "播放标清"; break;
+                case 3: status = "播放超清"; this.button1.Text = "暂停"; break;
+                case 2: status = "播放高清"; this.button1.Text = "暂停"; break;
+                case 1: status = "播放标清"; this.button1.Text = "暂停"; break;
                 case -1: status = "参数错误"; break;
                 case -2: status = "流量超标"; break;
                 case -3: status = "账号过期"; break;
@@ -225,17 +226,23 @@ namespace PolyvPlayerDemoWinform
                 Task task = new Task(new Action(() =>
                 {
                     long rest = DownLoadVideo.getFileSize(videoId, bitRate);
-                    ret = DownLoadVideo.downloadVideo(videoId, bitRate, directPath);//0:成功，-1:参数错误,-2:流量超标，-3:账号过期,-4:视频信息获取失败,-5:没有对应码率,-6:网络异常；
+                    ret = DownLoadVideo.downloadVideo(videoId, bitRate, directPath);
+                    //2,删除，1:暂停，0:成功，-1:参数错误,-2:流量超标，-3:账号过期,-4:视频信息获取失败,-5:没有对应码率,-6:key下载失败，-7：MP4下载失败，-8:m3u8下载失败,-9:ts下载失败；
 
                     switch (ret)
                     {
+                        case 2: status = "删除下载"; break;
+                        case 1:status = "暂停下载"; break;
                         case 0: status = "下载完成"; break;
                         case -1: status = "参数错误"; break;
                         case -2: status = "流量超标"; break;
                         case -3: status = "账号过期"; break;
                         case -4: status = "视频信息获取失败"; break;
                         case -5: status = "无对应码率"; break;
-                        case -6: status = "网络异常"; break;
+                        case -6: status = "key下载失败"; break;
+                        case -7: status = "mp4下载失败"; break;
+                        case -8: status = "m3u8下载失败"; break;
+                        case -9: status = "ts下载失败"; break;
                     }
                     this.Invoke(new Action(() =>
                     {
@@ -271,6 +278,16 @@ namespace PolyvPlayerDemoWinform
         {
 
             this.userControl11.setPosition(trackBar.Value);
+        }
+        private void volumTrackBarScroll(object sender, EventArgs e)
+        {
+            double vol = volumeTrackBar.Value ;
+            this.userControl11.setVolume(vol /100);
+        }
+        private void speedRatioScroll(object sender, EventArgs e)
+        {
+            double speed = speedRatioTrackBar.Value;
+            this.userControl11.setSpeedRatio(speed / 10);
         }
     }
 

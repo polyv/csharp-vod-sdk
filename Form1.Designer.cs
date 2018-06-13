@@ -42,13 +42,22 @@
             this.trackBar = new System.Windows.Forms.TrackBar();
             this.positionLbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.speedRatioTrackBar = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.volumeTrackBar = new System.Windows.Forms.TrackBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.userControl11 = new PolyvPlayerDemoWinform.UserControl1();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.positionTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.speedRatioTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar)).BeginInit();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // positionTime
@@ -61,13 +70,13 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(15, 73);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(279, 21);
+            this.textBox1.Size = new System.Drawing.Size(258, 21);
             this.textBox1.TabIndex = 18;
             // 
             // tipsLabel
             // 
             this.tipsLabel.AutoSize = true;
-            this.tipsLabel.Location = new System.Drawing.Point(291, 110);
+            this.tipsLabel.Location = new System.Drawing.Point(474, 45);
             this.tipsLabel.Name = "tipsLabel";
             this.tipsLabel.Size = new System.Drawing.Size(35, 12);
             this.tipsLabel.TabIndex = 17;
@@ -105,7 +114,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(480, 74);
+            this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 19;
@@ -116,7 +125,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(300, 73);
+            this.checkBox1.Location = new System.Drawing.Point(201, 46);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 20;
@@ -125,7 +134,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(561, 74);
+            this.button4.Location = new System.Drawing.Point(3, 32);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 21;
@@ -135,7 +144,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(642, 74);
+            this.button5.Location = new System.Drawing.Point(3, 61);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 22;
@@ -146,17 +155,18 @@
             // comboBox
             // 
             this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(378, 69);
+            this.comboBox.Location = new System.Drawing.Point(340, 45);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(54, 20);
+            this.comboBox.Size = new System.Drawing.Size(75, 20);
             this.comboBox.TabIndex = 24;
             // 
             // trackBar
             // 
+            this.trackBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.trackBar.Location = new System.Drawing.Point(0, 0);
             this.trackBar.Name = "trackBar";
             this.trackBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trackBar.Size = new System.Drawing.Size(788, 45);
+            this.trackBar.Size = new System.Drawing.Size(784, 45);
             this.trackBar.TabIndex = 26;
             this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
             // 
@@ -171,23 +181,75 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.speedRatioTrackBar);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.volumeTrackBar);
             this.panel1.Controls.Add(this.trackBar);
             this.panel1.Controls.Add(this.comboBox);
             this.panel1.Controls.Add(this.positionLbl);
-            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.openBtn);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.tipsLabel);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 539);
+            this.panel1.Location = new System.Drawing.Point(0, 534);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 130);
+            this.panel1.Size = new System.Drawing.Size(788, 135);
             this.panel1.TabIndex = 28;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(293, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "清晰度";
+            // 
+            // speedRatioTrackBar
+            // 
+            this.speedRatioTrackBar.Location = new System.Drawing.Point(509, 83);
+            this.speedRatioTrackBar.Maximum = 20;
+            this.speedRatioTrackBar.Name = "speedRatioTrackBar";
+            this.speedRatioTrackBar.Size = new System.Drawing.Size(104, 45);
+            this.speedRatioTrackBar.TabIndex = 32;
+            this.speedRatioTrackBar.Value = 10;
+            this.speedRatioTrackBar.Scroll += new System.EventHandler(this.speedRatioScroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(474, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "倍速";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(293, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "音量";
+            // 
+            // volumeTrackBar
+            // 
+            this.volumeTrackBar.Location = new System.Drawing.Point(328, 82);
+            this.volumeTrackBar.Maximum = 100;
+            this.volumeTrackBar.Name = "volumeTrackBar";
+            this.volumeTrackBar.Size = new System.Drawing.Size(104, 45);
+            this.volumeTrackBar.TabIndex = 28;
+            this.volumeTrackBar.Value = 100;
+            this.volumeTrackBar.Scroll += new System.EventHandler(this.volumTrackBarScroll);
             // 
             // panel2
             // 
@@ -204,10 +266,21 @@
             this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.elementHost1.Location = new System.Drawing.Point(0, 0);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(788, 539);
+            this.elementHost1.Size = new System.Drawing.Size(788, 534);
             this.elementHost1.TabIndex = 13;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.userControl11;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.button4);
+            this.flowLayoutPanel1.Controls.Add(this.button5);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(701, 45);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(83, 86);
+            this.flowLayoutPanel1.TabIndex = 34;
             // 
             // Form1
             // 
@@ -223,7 +296,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.speedRatioTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -245,6 +322,12 @@
         private System.Timers.Timer positionTime;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar volumeTrackBar;
+        private System.Windows.Forms.TrackBar speedRatioTrackBar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         #endregion
         // PolyvPlayerSDK.MediaElement Media;
     }
