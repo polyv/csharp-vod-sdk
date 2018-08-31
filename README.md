@@ -209,7 +209,18 @@ public const double MaxSpeedRatio = 2.0d;
 
 默认倍速为1.0d(正常)，SpeedRatio = Constants.DefaultSpeedRatio;
 
- 
+##### 七、跑马灯
+跑马灯功能只在视频播放的时候有效
+1. 初始化跑马灯接口
+public void InitScrollText(string content, Single fontSize, Color fontColor);
+传递参数：
+	content: 跑马灯显示的内容
+	fontSize: 字体大小
+	fontColor: 字体颜色
+2. 开始显示跑马灯接口
+public void StartDrawScrollText();
+3. 停止显示跑马灯接口
+public void StopDrawScrollText();
 
 ##### 七、播放其他参数
 
@@ -247,6 +258,10 @@ public const double MaxSpeedRatio = 2.0d;
 
 17、播放状态MediaState：Play,Close,Pause,Stop,Manual
 
+18、StayInVideoTime 当前视频播放时间，包含视频缓冲时间
+
+19、RealPlayVideoTime 当前视频播放时间，不包含视频缓冲时间
+
 
 
 下载模块接口释义
@@ -268,7 +283,8 @@ int downloadVideo(string videoId, int bitRate,string directPath)；
 使用方法：下载视频时调用该接口
 传递参数：
 videoId(视频vid)
-bitRate(码率)，1(标清)，2(高清)，3(超清)
+bitRate(码率)，1(标清)，2(高清)，3(超清)，如果指定的码率没有，则往低码
+率下载(3 没有找 2，2 没有找 1，1 也没有返回-5)
 directPath(下载视频存放的目录e.g: string directPath = "{用户指定目录}/";)
 请注意用户指定目录后面需带斜杠”/”
 

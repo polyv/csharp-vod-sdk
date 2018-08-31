@@ -56,13 +56,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PolyvLocal, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PolyvLocal\PolyvLocal\bin\Debug\PolyvLocal.dll</HintPath>
+    <Reference Include="PolyvLocal">
+      <HintPath>lib\PolyvLocal.dll</HintPath>
     </Reference>
-    <Reference Include="PolyvPlayerSDK, Version=2017.8.7.19862, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ffmediaelement-master\PolyvPlayerSDK\bin\Debug\PolyvPlayerSDK.dll</HintPath>
+    <Reference Include="PolyvPlayerSDK">
+      <HintPath>lib\PolyvPlayerSDK.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
