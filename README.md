@@ -210,17 +210,18 @@ public const double MaxSpeedRatio = 2.0d;
 默认倍速为1.0d(正常)，SpeedRatio = Constants.DefaultSpeedRatio;
 
 ##### 七、跑马灯
-跑马灯功能只在视频播放的时候有效
+*跑马灯功能只在视频播放的时候有效*
 1. 初始化跑马灯接口
-public void InitScrollText(string content, Single fontSize, Color fontColor);
-传递参数：
-	content: 跑马灯显示的内容
-	fontSize: 字体大小
-	fontColor: 字体颜色
-2. 开始显示跑马灯接口
-public void StartDrawScrollText();
-3. 停止显示跑马灯接口
-public void StopDrawScrollText();
+> public void InitScrollText(string content, Single fontSize, Color fontColor);      
+
+传递参数：      
+	content: 跑马灯显示的内容     
+	fontSize: 字体大小     
+	fontColor: 字体颜色      
+2. 开始显示跑马灯接口    
+> public void StartDrawScrollText();
+3. 停止显示跑马灯接口     
+> public void StopDrawScrollText();
 
 ##### 七、播放其他参数
 
