@@ -449,3 +449,47 @@ mylog.Warning(“您希望打印的警告信息”);
 
 mylog.Error(“您希望打印的异常信息”);
 ```
+
+##### 3、 播放流量统计接口
+ 
+ sdk会在视频打开播放成功后，每10秒钟统计一次视频的播放信息。如当前播放时间点，观看时长和停留时长等信息。统计完发送到服务器。
+ 详细规则看wiki的viewlog文档。
+
+
+ public async void sendViewLogTimer()
+ 
+ 在界面上做初始化 Media.sendViewLogTimer（）；
+ 
+ ##### 4、 点播视频服务质量统计分析（qos）
+ 
+ 统计视频打开播放后，统计 ：2.1 视频加载完成 2.2 二次缓冲 2.3 播放到片尾  2.4 发生错误 2.5 禁止播放 （详情见wiki：点播视频服务质量统计分析（qos））
+ 
+ 
+  public async Task SendQos()
+  当以上需要统计的事件发生时，调用SendQos（）函数发送当前信息。
+ 
+ ##### 5、 音视频切换
+ 
+ 点击音频播放按钮，只播放音频数据。
+ public int PlayAudio (string videoId)
+ 
+ 当前播放的是视频资源时，点击播放音频。播放内容会切换到音频播放，且跳转到之前播放视频时的播放位置。在视频转音频的过程中请求连接的pid码不变。
+ 
+ public void VideoToAudio(string videoId)
+  
+ private void Media_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            if (tranAudio = true)
+            {
+                Media.seek(Media.tranAu);
+            }
+           
+        }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
