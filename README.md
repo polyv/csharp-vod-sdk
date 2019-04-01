@@ -24,21 +24,24 @@
    ./ICSharpCode.SharpZipLib.dll 压缩/解压缩库
    ./Newtonsoft.Json.dll  json解析库
    ./SoundTouch.dll 音频处理库
+   ./msvcp 120.dll  库依赖
+   ./msvcr 120.dll  库依赖
+   ./vccorlib 120.dll  库依赖
    以下为运行目录中ffmpeg目录下的dll
 
-   ./ffmpeg/avcodec-57.dll
-   ./ffmpeg/avdevice-57.dll
-   ./ffmpeg/avfilter-6.dll
-   ./ffmpeg/avformat-57.dll
-   ./ffmpeg/avutil-55.dll
-   ./ffmpeg/postproc-54.dll
-   ./ffmpeg/swresample-2.dll
-   ./ffmpeg/swscale-4.dll
+   ./ffmpeg/avcodec-58.dll
+   ./ffmpeg/avdevice-58.dll
+   ./ffmpeg/avfilter-7.dll
+   ./ffmpeg/avformat-58.dll
+   ./ffmpeg/avutil-56.dll
+   //./ffmpeg/postproc-54.dll
+   ./ffmpeg/swresample-3.dll
+   ./ffmpeg/swscale-5.dll
    ./ffmpeg/ffmpeg.exe
    ./ffmpeg/ffplay.exe
    ./ffmpeg/ffprobe.exe
-   ./ffmpeg/libiconv-2.dll
-   ./ffmpeg/libgcc_s_dw2-1.dll
+   //./ffmpeg/libiconv-2.dll
+   //./ffmpeg/libgcc_s_dw2-1.dll
 ```
 #### 播放模块接口释义
 
@@ -71,10 +74,11 @@ int initPlayerInfo(string viewerIp, string viewerId, string viewerName);
 
 1、加载视频接口
 
-int PlayVideo(string videoId, int bitRate, int playType,string directPath);
+int PlayVideo(bool viodePlay, string videoId, int bitRate, int playType,string directPath);
 
 使用方法：加载视频源时调用该接口；
 传递参数：
+bool viodePlay(选择当前播放的模式： 1.播放视频 2.只播放音频。  true 播放视频， false 播放音频) 
 videoId(视频vid)
 bitRate(码率)：0(在线：管理后台设置的码率/本地：下载的最高码率)，1(标清)，2(高清)，3(超清)
 playType(播放模式),0(在线)，1(本地)
