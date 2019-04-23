@@ -74,11 +74,8 @@ int initPlayerInfo(string viewerIp, string viewerId, string viewerName);
 
 1、加载视频接口
 
-int PlayVideo(bool viodePlay, string videoId, int bitRate, int playType,string directPath);
+int PlayVideo( string videoId, int bitRate, int playType,string directPath);
 
-使用方法：加载视频源时调用该接口；
-传递参数：
-bool viodePlay(选择当前播放的模式： 1.播放视频 2.只播放音频。  true 播放视频， false 播放音频) 
 videoId(视频vid)
 bitRate(码率)：0(在线：管理后台设置的码率/本地：下载的最高码率)，1(标清)，2(高清)，3(超清)
 playType(播放模式),0(在线)，1(本地)
@@ -116,7 +113,7 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 
 4、Close() 关闭视频源
 
-5、seek跳转,改变Position值
+5、seek跳转,等同于改变Media.Position值
 
  
 
@@ -304,7 +301,10 @@ directPath(下载视频存放的目录e.g: string directPath = "{用户指定目
 -6:key下载失败，
 -7：MP4下载失败，
 -8:m3u8下载失败，
--9:ts下载失败；
+-9:ts解压失败，
+-10:下载ts时，网络请求错误，
+-11：ts 下载不完整，结束了。
+
 
 说明：
 ①　下载方式为同步下载，下载的视频位置：{用户指定目录}/video/{视频vid命名}/
