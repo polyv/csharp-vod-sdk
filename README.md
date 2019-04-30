@@ -1,19 +1,21 @@
-### PC端Polyv.Player.DotNet.SDK文档
-
+<<<<<<< HEAD
+# polyv-vod-sdk-2.0
+pc-player-sdk-2.0
+=======
+PC端Polyv.Player.DotNet.SDK文档
 简要说明及依赖库介绍：
 
-1. 播放和下载sdK依赖环境为.net 4.5
+播放和下载sdK依赖环境为.net 4.5
 
-2. PolyvPlayerSDK.dll是c#/wpf播放逻辑库
+PolyvPlayerSDK.dll是c#/wpf播放逻辑库
 
-3. PlyvLocal.dll为c#下载类库
+PlyvLocal.dll为c#下载类库
 
-4. PolyvCore.dll为c/c++的密钥下载库
+PolyvCore.dll为c/c++的密钥下载库
 
-5. 所有库文件在lib文件夹内
+所有库文件在lib文件夹内
 
-6. 依赖库：
-```java
+依赖库：
 
    ./ 代表程序运行目录
    ./PolyvPlayerSDK.dll 播放逻辑核心库
@@ -24,32 +26,24 @@
    ./ICSharpCode.SharpZipLib.dll 压缩/解压缩库
    ./Newtonsoft.Json.dll  json解析库
    ./SoundTouch.dll 音频处理库
-   ./msvcp 120.dll  库依赖
-   ./msvcr 120.dll  库依赖
-   ./vccorlib 120.dll  库依赖
    以下为运行目录中ffmpeg目录下的dll
 
-   ./ffmpeg/avcodec-58.dll
-   ./ffmpeg/avdevice-58.dll
-   ./ffmpeg/avfilter-7.dll
-   ./ffmpeg/avformat-58.dll
-   ./ffmpeg/avutil-56.dll
-   //./ffmpeg/postproc-54.dll
-   ./ffmpeg/swresample-3.dll
-   ./ffmpeg/swscale-5.dll
+   ./ffmpeg/avcodec-57.dll
+   ./ffmpeg/avdevice-57.dll
+   ./ffmpeg/avfilter-6.dll
+   ./ffmpeg/avformat-57.dll
+   ./ffmpeg/avutil-55.dll
+   ./ffmpeg/postproc-54.dll
+   ./ffmpeg/swresample-2.dll
+   ./ffmpeg/swscale-4.dll
    ./ffmpeg/ffmpeg.exe
    ./ffmpeg/ffplay.exe
    ./ffmpeg/ffprobe.exe
-   //./ffmpeg/libiconv-2.dll
-   //./ffmpeg/libgcc_s_dw2-1.dll
-```
-#### 播放模块接口释义
-
-##### 一、用户信息初始化
-
+   ./ffmpeg/libiconv-2.dll
+   ./ffmpeg/libgcc_s_dw2-1.dll
+播放模块接口释义
+一、用户信息初始化
 1、用户管理后台API信息初始化
-
-```java
 
 int initAccountInfo(string userId, string secretKey, string readToken);
 
@@ -68,28 +62,12 @@ int initPlayerInfo(string viewerIp, string viewerId, string viewerName);
 返回值：
 0：成功
 -1：失败，viewerIp为空
-
-```
-##### 二、加载视频源
-
+二、加载视频源
 1、加载视频接口
 
-int PlayVideo( string videoId, int bitRate, int playType,string directPath);
+int PlayVideo(string videoId, int bitRate, int playType,string directPath);
 
-videoId(视频vid)
-bitRate(码率)：0(在线：管理后台设置的码率/本地：下载的最高码率)，1(标清)，2(高清)，3(超清)
-playType(播放模式),0(在线)，1(本地)
-directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/";)
-返回值：
-3:播放超清，
-2:播放高清，
-1:播放标清，
--1:参数错误,
--2:流量超标，
--3:账号过期,
--4:视频信息获取失败,
--5:没有对应码率,
--6:网络异常；
+使用方法：加载视频源时调用该接口； 传递参数： videoId(视频vid) bitRate(码率)：0(在线：管理后台设置的码率/本地：下载的最高码率)，1(标清)，2(高清)，3(超清) playType(播放模式),0(在线)，1(本地) directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/";) 返回值： 3:播放超清， 2:播放高清， 1:播放标清， -1:参数错误, -2:流量超标， -3:账号过期, -4:视频信息获取失败, -5:没有对应码率, -6:网络异常；
 
 说明：
 
@@ -101,8 +79,7 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 
 返回值1、2、3表示加载的对应码率。(3没有找2，2没有找1，1也没有返回-5)
 
-##### 三、播放控制
-
+三、播放控制
 视频加载成功后可以进行暂停、停止、拖放等控制
 
 1、Play() 播放
@@ -113,15 +90,10 @@ directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/
 
 4、Close() 关闭视频源
 
-5、seek跳转,等同于改变Media.Position值
+5、seek跳转,改变Position值
 
- 
-
-##### 四．播放回调
-
+四．播放回调
 播放模块提供相应回调函数，播放结束、播放异常、缓冲开始/结束、Seek开始/结束、视频加载中、加载完成
-
-```java
 
 public event RoutedEventHandler BufferingEnded;
 
@@ -168,25 +140,13 @@ public event RoutedEventHandler MediaOpened;
 public event EventHandler<MediaOpeningRoutedEventArgs> MediaOpening;
 
 视频正在加载
-
-```
-
-##### 五、音量控制
-
-```java
-
+五、音量控制
 1、静音属性IsMuted
 
 public bool IsMuted；
 
 默认静音属性为flase，IsMuted = false;
-```
- 
-
 2、音量大小控制属性Volume，修改Volume值即可改变音量大小
-
-```java
-
 
 public const double DefaultVolume = 1.0d;
 
@@ -195,11 +155,7 @@ public const double MaxVolume = 1.0d;
 public const double MinVolume = 0.0d;
 
 默认音量为最大值，Volume = DefaultVolume;
-```
- 
-
-##### 六、倍速控制
-
+六、倍速控制
 倍速属性SpeedRatio ，修改SpeedRatio值即可改变播放速度
 
 public const double DefaultSpeedRatio = 1.0d;
@@ -210,23 +166,8 @@ public const double MaxSpeedRatio = 2.0d;
 
 默认倍速为1.0d(正常)，SpeedRatio = Constants.DefaultSpeedRatio;
 
-##### 七、跑马灯
-*跑马灯功能只在视频播放的时候有效*
-1. 初始化跑马灯接口
-> public void InitScrollText(string content, Single fontSize, Color fontColor);      
-
-传递参数：      
-	content: 跑马灯显示的内容     
-	fontSize: 字体大小     
-	fontColor: 字体颜色      
-2. 开始显示跑马灯接口    
-> public void StartDrawScrollText();
-3. 停止显示跑马灯接口     
-> public void StopDrawScrollText();
-
-##### 七、播放其他参数
-
-1、string MediaFormat  媒体格式
+七、播放其他参数
+1、string MediaFormat 媒体格式
 
 2、Duration NaturalDuration 视频总时长
 
@@ -260,37 +201,16 @@ public const double MaxSpeedRatio = 2.0d;
 
 17、播放状态MediaState：Play,Close,Pause,Stop,Manual
 
-18、StayInVideoTime 当前视频播放时间，包含视频缓冲时间
-
-19、RealPlayVideoTime 当前视频播放时间，不包含视频缓冲时间
-
-
-
 下载模块接口释义
 
+1、用户管理后台API信息初始化 int initAccountInfo(string userId, string secretKey, string readToken);
 
-1、用户管理后台API信息初始化
-int initAccountInfo(string userId, string secretKey, string readToken);
+使用方法：初始化播放器时调用该接口； 传递参数：userId , secretKey , readToken 返回值： 0：成功 -1：失败，有参数为空
 
-使用方法：初始化播放器时调用该接口；
-传递参数：userId , secretKey , readToken
-返回值：
-0：成功
--1：失败，有参数为空
+2、下载接口 int downloadVideo(string videoId, int bitRate,string directPath)；
 
+使用方法：下载视频时调用该接口 传递参数： videoId(视频vid) bitRate(码率)，1(标清)，2(高清)，3(超清) directPath(下载视频存放的目录e.g: string directPath = "{用户指定目录}/";) 请注意用户指定目录后面需带斜杠”/”
 
-2、下载接口
-int downloadVideo(string videoId, int bitRate,string directPath)；
-
-使用方法：下载视频时调用该接口
-传递参数：
-videoId(视频vid)
-bitRate(码率)，1(标清)，2(高清)，3(超清)，如果指定的码率没有，则往低码
-率下载(3 没有找 2，2 没有找 1，1 也没有返回-5)
-directPath(下载视频存放的目录e.g: string directPath = "{用户指定目录}/";)
-请注意用户指定目录后面需带斜杠”/”
-
-```java
 返回值：
 0:成功，
 -1:参数错误,
@@ -301,10 +221,7 @@ directPath(下载视频存放的目录e.g: string directPath = "{用户指定目
 -6:key下载失败，
 -7：MP4下载失败，
 -8:m3u8下载失败，
--9:ts解压失败，
--10:下载ts时，网络请求错误，
--11：ts 下载不完整，结束了。
-
+-9:ts下载失败；
 
 说明：
 ①　下载方式为同步下载，下载的视频位置：{用户指定目录}/video/{视频vid命名}/
@@ -323,37 +240,22 @@ bitRate ：码率(1-标清2-高清3-超清)
 Index：ts序号 从0开始
 3、暂停下载接口
 public void pauseDownload();
-
- ```
-
 4、删除文件接口
-```java
+
 public int deleteVideo(string videoId,int bitRate,string directPath);
-```
 参数：
-```java
 
 videoId(视频vid)
 
 bitRate(码率)，1(标清)，2(高清)，3(超清)
 
 directPath(下载视频存放的目录e.g: string directPath = "D:/视频目录/";)
-
- ```
-
 5、下载重要参数
-```java
 
 public bool abort = false;//暂停，暂停正在下载视频为true
 
 public bool isDelete = false;//删除,删除正在下载视频为true
-
- ```
-
- 
-
 6、下载进度回调事件
-```java
 
 Demo 调用示范：Media.OnDownloadProgress += DownloadProgressEvent;
 
@@ -364,11 +266,7 @@ public delegate void OnDownloadProgressHandler(string videoId, long receivedByte
 public event OnDownloadProgressHandler OnDownloadProgress;
 
 返回参数说明：videoId(视频vid)，totalBytes(总大小)receivedBytes(已接收的文件大小)
-
- ```
-
 7、服务器没有指定码率时，下载最高码率触发事件
-```java
 
 Demo 调用示范：Media.OnCurrentBitRate+= OnCurrentBitRateEvent;
 
@@ -379,11 +277,7 @@ public delegate void OnCurrentBitRateHandler (string videoId,int inputBitRate,in
 public event OnCurrentBitRateHandler OnCurrentBitRate;
 
 返回参数：videoId(视频vid)，inputBitRate(输入的码率),realBitRate(实际下载的码率)
-
- ```
-
 8、删除视频回调事件
-```java
 
 //删除回调
 
@@ -396,11 +290,7 @@ status(删除状态，true:删除成功,false:删除失败)，
 videoId(视频vid)，
 bitRate(码率)，
 msg(删除提示)
-
-```
 9、获取所选码率的视频大小
-
-```java
 
 public long getFileSize(string videoId, int bitRate)；
 
@@ -409,16 +299,10 @@ public long getFileSize(string videoId, int bitRate)；
 videoId(视频vid)
 bitRate(码率)，1(标清)，2(高清)，3(超清)
 
-
-```
-#### 网络状况和日志记录
-
+网络状况和日志记录
 #####1、网络异常检测
 
 .net 本身提供网络异常回调，无需sdk提供
-
-```java
-
 
 NetworkChange.NetworkAvailabilityChanged += new NetworkAvailabilityChangedEventHandler(networkchanged);
 
@@ -435,13 +319,8 @@ else tipsLabel.Text = "网络恢复";
 }
 
  
-```
-##### 2、日志系统
-
+2、日志系统
 Sdk提供本地日志功能，播放和下载均会打印相应日志
-
- ```java
-
 
 利用SDK的mylog对象可以在上层使用日志打印功能
 
@@ -452,4 +331,4 @@ mylog.Debug(“您希望打印的调试信息”);
 mylog.Warning(“您希望打印的警告信息”);
 
 mylog.Error(“您希望打印的异常信息”);
-```
+>>>>>>> pc-player-sdk-2.0
