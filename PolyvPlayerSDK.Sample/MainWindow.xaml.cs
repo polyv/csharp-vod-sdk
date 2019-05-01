@@ -71,11 +71,11 @@
 
 
                 //播放初始化账号信息,不能为空
-                 VIDTextBox.Text = "9f033b6d5b7e43101cc1418ce689e987_9";
-                //VIDTextBox.Text = "9f033b6d5bf38c19f5be913a9d140f76_9";
-                 string userId = "9f033b6d5b";
-                 string secretkey = "fGiYvVODDB";
-                 string readToken = "b0ea1284-94df-4cf6-af51-a033c1e5cbfa";
+                 VIDTextBox.Text = "";
+                //VIDTextBox.Text = "";
+                 string userId = "";
+                 string secretkey = "";
+                 string readToken = "";
 
 
                 //初始化必要参数，播放和下载均需要初始化
@@ -84,7 +84,7 @@
 
                 PolyvPlayerSDK.MediaElement.FFmpegMessageLogged += OnMediaFFmpegMessageLogged;
                 //初始化观看者信息，观看者的ip,不能为空
-                string viewerIp = "59.42.42.15";
+                string viewerIp = "";
                 string viewerId = "";
                 string viewerName = "";
                 Media.initPlayerInfo(viewerIp, viewerId, viewerName);
