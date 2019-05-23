@@ -1,5 +1,4 @@
-# polyv-vod-sdk-2.0
-pc-player-sdk-2.0
+# csharp-vod-sdk-2.0
 =======
 PC端Polyv.Player.DotNet.SDK文档
 简要说明及依赖库介绍：
