@@ -222,6 +222,8 @@ public const double MaxSpeedRatio = 2.0d;
 -7：MP4下载失败，
 -8:m3u8下载失败，
 -9:ts下载失败；
+-10：ts下载时网络断开；
+-11：ts下载不完整。
 
 说明：
 ①　下载方式为同步下载，下载的视频位置：{用户指定目录}/video/{视频vid命名}/
