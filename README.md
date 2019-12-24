@@ -60,6 +60,7 @@ int initPlayerInfo(string viewerIp, string viewerId, string viewerName);
 返回值：
 0：成功
 -1：失败，viewerIp为空
+
 二、加载视频源
 1、加载视频接口
 
@@ -198,6 +199,8 @@ public const double MaxSpeedRatio = 2.0d;
 16、endPosition 播放结束时间
 
 17、播放状态MediaState：Play,Close,Pause,Stop,Manual
+
+18、bool isHardwareAcc 是否开启视频硬件解码模式。在打开硬件解码模式后，如果找不到兼容的硬件设备会默认切换到软件解码模式。
 
 下载模块接口释义
 
